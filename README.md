@@ -24,6 +24,30 @@ Add the effect under `<effects>`:
 <effect name="jamesdsp" library="jdsp" uuid="f27317f4-c984-4de6-9a90-545759495bf2"/>
 ```
 
+### 3. Add SELinux policy
+If your device tree already has an `audioserver.te`, add:
+
+```te
+get_prop(audioserver, vendor_audio_prop)
+
+allow audioserver unlabeled:file {
+    getattr
+    open
+    read
+    write
+};
+
+allow hal_audio_default hal_audio_default:process execmem;
+```
+
+If not, create a new file. For example:
+
+```text
+device/<vendor>/<device>/sepolicy/vendor/audioserver_jamesdspandroid.te
+```
+
+For Google or MTK devices, skip `get_prop(audioserver, vendor_audio_prop)` if the device tree already grants the required vendor audio property access.
+
 ## Credits
 - **james34602** (Original Creator of JamesDSP)
 - **ThePBone** (RootlessJamesDSP - APK & Engine enhancements)
