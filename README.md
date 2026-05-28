@@ -51,6 +51,7 @@ For Google or MTK devices, skip `get_prop(audioserver, vendor_audio_prop)` if th
 ## Credits
 - **james34602** (Original Creator of JamesDSP)
 - **ThePBone** (RootlessJamesDSP - APK & Engine enhancements)
+- **ShadoV90** (JamesDSP Magisk/Root Modules)
 
 ## Source Credits
 ### Terms and Conditions / License
