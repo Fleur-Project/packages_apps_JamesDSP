@@ -1,0 +1,42 @@
+android_app_import {
+    name: "JamesDSP",
+    owner: "JamesDSP",
+    apk: "system-ext/app/JamesDSP/JamesDSP.apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    overrides: ["AudioFX"],
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libjamesdsp",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "vendor/lib/soundfx/libjamesdsp.so",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "vendor/lib64/soundfx/libjamesdsp.so",
+            ],
+        },
+    },
+    shared_libs: [
+        "liblog",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    ignore_max_page_size: true,
+    compile_multilib: "both",
+    relative_install_path: "soundfx",
+    prefer: true,
+    soc_specific: true,
+}
