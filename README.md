@@ -43,7 +43,7 @@ allow hal_audio_default hal_audio_default:process execmem;
 If not, create a new file. For example:
 
 ```text
-device/<vendor>/<device>/sepolicy/vendor/audioserver_jamesdspandroid.te
+device/<vendor>/<device>/sepolicy/vendor/audioserver_jamesdsp.te
 ```
 
 For Google or MTK devices, skip `get_prop(audioserver, vendor_audio_prop)` if the device tree already grants the required vendor audio property access.
