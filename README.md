@@ -4,14 +4,22 @@ This repository provides the JamesDSP audio effect engine and manager app struct
 
 ## Integration Guide
 
-### 1. Inherit the Product
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Fleur-Project/packages_apps_JamesDSP packages/apps/JamesDSP
+```
+*Optional - You can clone the [early](https://github.com/Fleur-Project/packages_apps_JamesDSP/tree/early) branch for the newest upstream features, taken from github actions.*
+```bash
+git clone -b early https://github.com/Fleur-Project/packages_apps_JamesDSP packages/apps/JamesDSP
+```
+### 2. Inherit the Product
 Add the following to your device's makefile (e.g., `device.mk` or `device-common.mk`):
 ```makefile
 # JamesDSP
 $(call inherit-product, packages/apps/JamesDSP/config.mk)
 ```
 
-### 2. Configure Audio Effects (`audio_effects.xml`)
+### 3. Configure Audio Effects (`audio_effects.xml`)
 You need to patch your device's `audio_effects.xml` (usually found in `device/<oem>/<device>/audio/` or similar) to declare the JamesDSP library and effect.
 
 Add the library under `<libraries>`:
@@ -24,7 +32,7 @@ Add the effect under `<effects>`:
 <effect name="jamesdsp" library="jdsp" uuid="f27317f4-c984-4de6-9a90-545759495bf2"/>
 ```
 
-### 3. Add SELinux policy
+### 4. Add SELinux policy
 If your device tree already has an `audioserver.te`, add:
 
 ```te
