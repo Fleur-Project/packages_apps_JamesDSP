@@ -32,6 +32,7 @@ Add the effect under `<effects>`:
 <effect name="jamesdsp" library="jdsp" uuid="f27317f4-c984-4de6-9a90-545759495bf2"/>
 ```
 
+*Example commit:* https://github.com/Fleur-Project/android_device_xiaomi_garnet/commit/ddcd644612001906ad8163fe969604a51502d32b
 ### 4. Add SELinux policy
 If your device tree already has an `audioserver.te`, add:
 
@@ -56,6 +57,7 @@ device/<vendor>/<device>/sepolicy/vendor/audioserver_jamesdsp.te
 
 For Google or MTK devices, skip `get_prop(audioserver, vendor_audio_prop)` if the device tree already grants the required vendor audio property access.
 
+*Example commit:* https://github.com/Fleur-Project/android_device_xiaomi_garnet/commit/8f094547fefc386032457172fea09301605925b1
 ## Credits
 - **james34602** (Original Creator of JamesDSP)
 - **ThePBone** (RootlessJamesDSP - APK & Engine enhancements)
